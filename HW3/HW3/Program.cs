@@ -9,7 +9,6 @@ namespace HW3
             //Написать программу, выводящую элементы двухмерного массива по диагонали.
             Console.WriteLine("Введите размерность первого массива");
             int numberOfElementsFirstArray = Convert.ToInt32(Console.ReadLine());
-
             Console.WriteLine("Введите размерность второго массива");
             int numberOfElementsSecondArray = Convert.ToInt32(Console.ReadLine());
             Random randomValue = new Random();
@@ -21,36 +20,12 @@ namespace HW3
             //Вывод полученного массива на экран
             arrayOutput(numberOfElementsFirstArray, numberOfElementsSecondArray, arrayOfNumber);
 
-            Console.WriteLine("Вывод массива по диагонали");
-            for (int i = 0; i < numberOfElementsFirstArray; i++)
-            {
-                int countI = 0;
-                for (int j = i; j >= 0; j--)
-                {
-                    Console.Write(arrayOfNumber[countI, j] + " ");
-                    countI++;
-                }
-                Console.WriteLine();
-            }
-
-            for (int i = numberOfElementsFirstArray - 1; i > 0; i--)
-            {
-                int countI = 0;
-                for (int j = 0; j <= i; j++)
-                {
-                    Console.Write(arrayOfNumber[countI, j] + " ");
-                    countI++;
-                }
-                Console.WriteLine();
-            }
-
-
-
             //Вывод главной диагонали массива
-            //mainDiagonalOutput(numberOfElementsFirstArray, numberOfElementsSecondArray, arrayOfNumber);
+            mainDiagonalOutput(numberOfElementsFirstArray, numberOfElementsSecondArray, arrayOfNumber);
             readKey();
         }
 
+        //Вывод массива на экран
         static void arrayOutput(int numberOfElementsFirstArray, int numberOfElementsSecondArray, int[,] arrayOfNumber)
         {
             Console.WriteLine("Полученный массив:");
@@ -63,7 +38,7 @@ namespace HW3
                 Console.WriteLine();
             }
         }
-
+        //Заполнение массива рандомными значениями
         private static void fillingArray(int numberOfElementsFirstArray, int numberOfElementsSecondArray, Random randomValue, int[,] arrayOfNumber)
         {
             for (int i = 0; i < numberOfElementsFirstArray; i++)
@@ -74,7 +49,7 @@ namespace HW3
                 }
             }
         }
-
+        //Вывод главной диагонали
         private static void mainDiagonalOutput(int numberOfElementsFirstArray, int numberOfElementsSecondArray, int[,] arrayOfNumber)
         {
             Console.WriteLine("Главная диагональ:");
