@@ -11,3 +11,16 @@ C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW
 C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.dll
 C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.pdb
 C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.genruntimeconfig.cache
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.csprojAssemblyReference.cache
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.AssemblyInfoInputs.cache
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.AssemblyInfo.cs
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.csproj.CoreCompileInputs.cache
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.dll
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.pdb
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\bin\Debug\netcoreapp3.1\HW5.4.exe
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\bin\Debug\netcoreapp3.1\HW5.4.deps.json
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\bin\Debug\netcoreapp3.1\HW5.4.runtimeconfig.json
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\bin\Debug\netcoreapp3.1\HW5.4.runtimeconfig.dev.json
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\bin\Debug\netcoreapp3.1\HW5.4.dll
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\bin\Debug\netcoreapp3.1\HW5.4.pdb
+D:\Noveria\GeekBrains\Введение в С# 15.01.2021\HW\IntroductionToCSharp\HW5\HW5.4\obj\Debug\netcoreapp3.1\HW5.4.genruntimeconfig.cache

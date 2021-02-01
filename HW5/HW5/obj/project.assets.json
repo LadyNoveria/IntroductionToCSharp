@@ -8,20 +8,25 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\littl\\.nuget\\packages\\": {}
+    "C:\\Users\\littl\\.nuget\\packages\\": {},
+    "D:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\littl\\Desktop\\IntroductionToCSharp\\HW5\\HW5\\HW5.csproj",
+      "projectUniqueName": "D:\\Noveria\\GeekBrains\\Введение в С# 15.01.2021\\HW\\IntroductionToCSharp\\HW5\\HW5\\HW5.csproj",
       "projectName": "HW5",
-      "projectPath": "C:\\Users\\littl\\Desktop\\IntroductionToCSharp\\HW5\\HW5\\HW5.csproj",
+      "projectPath": "D:\\Noveria\\GeekBrains\\Введение в С# 15.01.2021\\HW\\IntroductionToCSharp\\HW5\\HW5\\HW5.csproj",
       "packagesPath": "C:\\Users\\littl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\littl\\Desktop\\IntroductionToCSharp\\HW5\\HW5\\obj\\",
+      "outputPath": "D:\\Noveria\\GeekBrains\\Введение в С# 15.01.2021\\HW\\IntroductionToCSharp\\HW5\\HW5\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\littl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -60,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

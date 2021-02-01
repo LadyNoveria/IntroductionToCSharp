@@ -14,47 +14,42 @@ namespace HW5._4
             {
                 CreatingDirectoryTree(workDir);
             }
-            string[] entries = Directory.GetFileSystemEntries(workDir, "*", SearchOption.AllDirectories);
-            //Вывод полученного массива на экран
-            OutputEntries(entries);
+            //Сохранение дерева каталогов и файлов с помощью рекурсии
+            WalkDirectoryTree(workDir); 
 
-            int count = 0;
-            //Сохранение дерева каталогов с помощью рекурсии
-            SaveEntriesUsingRecursion(entries, count, entries[count]);
-            //Сохранение дерева каталогов с помощью цикла
+            //Сохранение дерева каталогов и файлов с помощью цикла
+            string[] entries = Directory.GetFileSystemEntries(workDir, "*", SearchOption.AllDirectories);
             SaveEntriesUsingCicle(entries);
+
             Console.ReadKey();
         }
-        public static void SaveEntriesUsingCicle(string[] entries)
-        {
-            for (int i = 0; i < entries.Length; i++)
-            {
-                File.AppendAllText("SaveEntriesUsingCicle.txt", entries[i]);
-                File.AppendAllText("SaveEntriesUsingCicle.txt", Environment.NewLine);
-            }
 
-        }
-        private static void OutputEntries(string[] entries)
+        static void WalkDirectoryTree(string workDir)
         {
-            for (int i = 0; i < entries.Length; i++)
+            string[] files = Directory.GetFiles(workDir);
+
+            if (files != null)
             {
-                Console.WriteLine(entries[i]);
+                foreach (string fi in files)
+                {
+                    Console.WriteLine(fi);
+                    File.AppendAllText("SaveEntriesUsingRecursion.txt", fi);
+                    File.AppendAllText("SaveEntriesUsingRecursion.txt", Environment.NewLine);
+                }
+
+                string[] subDirs = Directory.GetDirectories(workDir);
+
+                foreach (string dirInfo in subDirs)
+                {
+                    Console.WriteLine(dirInfo);
+                    File.AppendAllText("SaveEntriesUsingRecursion.txt", dirInfo);
+                    File.AppendAllText("SaveEntriesUsingRecursion.txt", Environment.NewLine);
+                    WalkDirectoryTree(dirInfo);
+                }
             }
         }
 
-        public static string SaveEntriesUsingRecursion(string[] entries, int count, string value)
-        {
-            File.AppendAllText("SaveEntriesUsingRecursion.txt", value);
-            File.AppendAllText("SaveEntriesUsingRecursion.txt", Environment.NewLine);
-            count++;
-            if (count == entries.Length)
-            {
-                return value;
-            }
-            return SaveEntriesUsingRecursion(entries, count, entries[count]);
-        }
-       
-        private static void CreatingDirectoryTree(string workDir)
+        public static void CreatingDirectoryTree(string workDir)
         {
             //Creating directories
             string testMainDir = Path.Combine(workDir, "TestMainDir");
@@ -78,6 +73,15 @@ namespace HW5._4
             File.Create(article1Path);
             File.Create(article2Path);
             File.Create(article3Path);
+        }
+
+        public static void SaveEntriesUsingCicle(string[] entries)
+        {
+            for (int i = 0; i < entries.Length; i++)
+            {
+                File.AppendAllText("SaveEntriesUsingCicle.txt", entries[i]);
+                File.AppendAllText("SaveEntriesUsingCicle.txt", Environment.NewLine);
+            }
         }
     }
 }
