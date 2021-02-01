@@ -8,7 +8,7 @@ namespace HW5
         {
             Console.WriteLine("Введите любую строку");
             string inputString = Console.ReadLine();
-            string filename = "filename.txt";
+            string filename = "startup.txt";
             File.WriteAllText(filename, inputString);
 
             //для проверки
