@@ -13,6 +13,7 @@ namespace HW5._3
 
             File.WriteAllBytes("setOfNumbers.bin", setOfNumbers);
             ForCheck();
+            Console.ReadKey();
         }
 
         private static void ForCheck()
