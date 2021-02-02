@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Text.Json;
-using HW5._5;
 
 namespace HW5._5
 {
@@ -15,118 +14,164 @@ namespace HW5._5
         public static void StartMenu()
         {
             string path = @"tasks.json";
+            ToDo[] tasks = null;
             if (File.Exists(path))
             {
-                //Запустить десериализацию DeserializingTasks();
-                ToDo[] tasks = DeserializingTasks(path);
-                //Вывести содержимое на экран OutputTasks();
+                tasks = DeserializingTasks(path);
                 OutputTasks(tasks);
-                ComandsForStartMenu();
             }
-            else
-            {
-                Console.WriteLine("Ваш список задач пуст");
-                ComandsForStartMenu2();
-            }
+            ComandsForStartMenu();
+
             string enteredComand = Console.ReadLine();
-            if (IsNum(enteredComand))
+            if (enteredComand == "exit")
             {
-                if (Convert.ToInt32(enteredComand) == 0)
-                {
-                    Console.WriteLine("Всего доброго!");
-                    return;
-                }
-                else
-                {
-                    ActionSelectionForStartMenu(enteredComand);
-                }
+                Console.WriteLine("Всего доброго!");
+                return;
             }
+
+            ActionSelectionForStartMenu(enteredComand, tasks);
         }
 
-        public static ToDo[] DeserializingTasks(string path)
-        {
-            string json = File.ReadAllText(path);
-            ToDo[] tasks = JsonSerializer.Deserialize<ToDo[]>(json);
-            return tasks;
-        }
-
-        public static void OutputTasks(ToDo[] tasks)
-        {
-            for (int i = 0; i < tasks.Length - 1; i++)
-            {
-                Console.WriteLine($"{tasks[i].Title}        {tasks[i].isDone}");
-            }
-        }
-        public static void AddTasksToTheTaskList()
+        //Добавление задач в строку
+        public static void AddTasksToTheTaskList(ToDo[] arrayTasks)
         {
             string tasks = "";
-            Console.WriteLine("Чтобы вернуться в главное меню, введите 1");
+            Console.WriteLine("Чтобы вернуться в главное меню, введите exit");
             while (true)
             {
                 Console.WriteLine("Введите описание задачи");
                 string task = Console.ReadLine();
-                if (IsNum(task)){
-                    if (Convert.ToInt32(task) == 0)
-                    {
-                        Console.WriteLine("Всего доброго!");
-                        SerializingTasks(GetArrayForSerialization(tasks));
-                        return;
-                    }
-                    else if(Convert.ToInt32(task) == 1)
-                    {
-                        StartMenu();
-                    }
+
+                if (task == "exit")
+                {
+                    SerializingTasks(GetArrayForSerialization(tasks, arrayTasks));
+                    break;
                 }
-                tasks += $"{task};";
+                else
+                    tasks += $"{task};";
+            }
+            
+            StartMenu();
+        }
+        //Преобразование полученной строки с задачами в массив задач ToDo[]
+        public static ToDo[] GetArrayForSerialization(string tasks, ToDo[] arrayTasks)
+        {
+            string[] arrayOfTasks = tasks.Split(';');
+            ToDo[] toDoTasks = null;
+            if (arrayTasks != null)
+            {
+                toDoTasks = new ToDo[arrayOfTasks.Length + arrayTasks.Length];
+                for (int i = 0; i < arrayTasks.Length; i++)
+                {
+                    toDoTasks[i] = arrayTasks[i];
+                }
+                for (int i = 0; i < arrayOfTasks.Length; i++)
+                {
+                    toDoTasks[i + (arrayTasks.Length)] = new ToDo(arrayOfTasks[i]);
+                }
+                return toDoTasks;
+            }
+            else
+            {
+                toDoTasks = new ToDo[arrayOfTasks.Length];
+                for (int i = 0; i < arrayOfTasks.Length; i++)
+                {
+                    toDoTasks[i] = new ToDo(arrayOfTasks[i]);
+                }
+                return toDoTasks;
             }
         }
-
+        //Изменение статуса задач
+        public static void ChangeTaskStatus(ToDo[] tasks)
+        {
+            Console.WriteLine("Чтобы вернуться в главное меню, введите exit");
+            while (true)
+            {
+                Console.WriteLine("Введите номер задачи, статус которой хотите изменить");
+                string numberOfTask = Console.ReadLine();
+                if (numberOfTask == "exit")
+                {
+                    break;
+                }
+                else if (tasks == null)
+                {
+                    Console.WriteLine("Ваш список задач пуст. Нечего изменять.");
+                    return;
+                }
+                else if(IsNum(numberOfTask) && Convert.ToInt32(numberOfTask) >= 0 && Convert.ToInt32(numberOfTask) < tasks.Length)
+                {
+                    Console.WriteLine("Статус задачи изменен");
+                    switch (tasks[Convert.ToInt32(numberOfTask)].isDone)
+                    {
+                        case true:
+                            tasks[Convert.ToInt32(numberOfTask)].isDone = false;
+                            break;
+                        case false:
+                            tasks[Convert.ToInt32(numberOfTask)].isDone = true;
+                            break;
+                    } 
+                }
+            }
+            SerializingTasks(tasks);
+            StartMenu();
+        }
+        public static void ActionSelectionForStartMenu(string enteredComand, ToDo[] tasks)
+        {
+            switch (Convert.ToInt32(enteredComand))
+            {
+                case 0:
+                    Console.WriteLine("Всего доброго!");
+                    return;
+                case 1:
+                    //добавление задач в список 
+                    AddTasksToTheTaskList(tasks);
+                    break;
+                case 2:
+                    //изменить статус задачи
+                    ChangeTaskStatus(tasks);
+                    break;
+            }
+        }
+        //Сериализация
         public static void SerializingTasks(ToDo[] tasks)
         {
             string json = JsonSerializer.Serialize(tasks);
             File.WriteAllText("tasks.json", json);
             return;
         }
+        //Десериализация
+        public static ToDo[] DeserializingTasks(string path)
+        {
+            string json = File.ReadAllText(path);
+            ToDo[] tasks = JsonSerializer.Deserialize<ToDo[]>(json);
+            return tasks;
+        }
+        //Вывод десериализированного массива на экран
+        public static void OutputTasks(ToDo[] tasks)
+        {
+            for (int i = 0; i < tasks.Length; i++)
+            {
+                bool isDoneValue = tasks[i].isDone;
+                if (isDoneValue)
+                {
+                    Console.WriteLine($"{tasks[i].Title} \t V");
+                }
+                else
+                {
+                    Console.WriteLine($"{tasks[i].Title} \t X");
+                }
 
-        public static ToDo[] GetArrayForSerialization(string tasks)
-        {
-            string[] arrayOfTasks = tasks.Split(';');
-            ToDo[] toDoTasks = new ToDo[arrayOfTasks.Length];
-            for (int i = 0; i < arrayOfTasks.Length; i++)
-            {
-                toDoTasks[i] = new ToDo(arrayOfTasks[i]);
-            }
-            return toDoTasks;
-        }
-        public static void ChangeTaskStatus()
-        {
-            //ComandForMenuAddAndChangeTasks();
-        }
-        public static void ActionSelectionForStartMenu(string enteredComand)
-        {
-            switch (Convert.ToInt32(enteredComand))
-            {
-                case 1:
-                    //добавление задач в список 
-                    AddTasksToTheTaskList();
-                    break;
-                case 2:
-                    //изменить статус задачи
-                    ChangeTaskStatus();
-                    break;
             }
         }
-
+        //Выбор команд для главного меню
         public static void ComandsForStartMenu()
         {
             Console.WriteLine("Чтобы добавить задачи в ваш Список задач, введите 1");
             Console.WriteLine("Чтобы изменить статус задачи, нажмите 2");
-            Console.WriteLine("Чтобы выйти из приложения, нажмите 0");
+            Console.WriteLine("Чтобы выйти из приложения, введите exit");
         }
-        public static void ComandsForStartMenu2() {
-            Console.WriteLine("Чтобы добавить задачи в ваш Список задач, введите 1");
-            Console.WriteLine("Чтобы выйти из приложения, нажмите 0");
-        }
+
+        //Проверка на число
         public static bool IsNum(string value) {
             if (int.TryParse(value, out int result))
             {
