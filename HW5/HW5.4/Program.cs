@@ -9,7 +9,7 @@ namespace HW5._4
         {
             /*Сохранить дерево каталогов и файлов по заданному пути в текстовый файл — с рекурсией и без.*/
 
-            string workDir = @"C:\Users\littl\Desktop\IntroductionToCSharp\TestMainDir";
+            string workDir = @"Вставьте_любой_путь\TestMainDir";
             if (!Directory.Exists(workDir))
             {
                 CreatingDirectoryTree(workDir);
