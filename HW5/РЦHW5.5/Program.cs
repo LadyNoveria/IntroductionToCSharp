@@ -48,7 +48,7 @@ namespace HW5._5
                     break;
                 }
                 else
-                    tasks += $"{task};";
+                    tasks = tasks + task + ".";
             }
             
             StartMenu();
@@ -56,16 +56,16 @@ namespace HW5._5
         //Преобразование полученной строки с задачами в массив задач ToDo[]
         public static ToDo[] GetArrayForSerialization(string tasks, ToDo[] arrayTasks)
         {
-            string[] arrayOfTasks = tasks.Split(';');
+            string[] arrayOfTasks = tasks.Split('.');
             ToDo[] toDoTasks = null;
             if (arrayTasks != null)
             {
-                toDoTasks = new ToDo[arrayOfTasks.Length + arrayTasks.Length];
+                toDoTasks = new ToDo[arrayOfTasks.Length + arrayTasks.Length - 1];
                 for (int i = 0; i < arrayTasks.Length; i++)
                 {
                     toDoTasks[i] = arrayTasks[i];
                 }
-                for (int i = 0; i < arrayOfTasks.Length; i++)
+                for (int i = 0; i < arrayOfTasks.Length - 1; i++)
                 {
                     toDoTasks[i + (arrayTasks.Length)] = new ToDo(arrayOfTasks[i]);
                 }
@@ -73,8 +73,8 @@ namespace HW5._5
             }
             else
             {
-                toDoTasks = new ToDo[arrayOfTasks.Length];
-                for (int i = 0; i < arrayOfTasks.Length; i++)
+                toDoTasks = new ToDo[arrayOfTasks.Length - 1];
+                for (int i = 0; i < arrayOfTasks.Length - 1; i++)
                 {
                     toDoTasks[i] = new ToDo(arrayOfTasks[i]);
                 }
@@ -98,7 +98,7 @@ namespace HW5._5
                     Console.WriteLine("Ваш список задач пуст. Нечего изменять.");
                     return;
                 }
-                else if(IsNum(numberOfTask) && Convert.ToInt32(numberOfTask) >= 0 && Convert.ToInt32(numberOfTask) < tasks.Length)
+                else if (IsNum(numberOfTask) && Convert.ToInt32(numberOfTask) >= 0 && Convert.ToInt32(numberOfTask) < tasks.Length)
                 {
                     Console.WriteLine("Статус задачи изменен");
                     switch (tasks[Convert.ToInt32(numberOfTask)].isDone)
@@ -109,27 +109,35 @@ namespace HW5._5
                         case false:
                             tasks[Convert.ToInt32(numberOfTask)].isDone = true;
                             break;
-                    } 
+                    }
                 }
+                else
+                    Console.WriteLine("Некорректно указан номер задачи.");
             }
             SerializingTasks(tasks);
             StartMenu();
         }
+        //Обработка выбранного пользователем пункта меню
         public static void ActionSelectionForStartMenu(string enteredComand, ToDo[] tasks)
         {
-            switch (Convert.ToInt32(enteredComand))
+            if (IsNum(enteredComand) && Convert.ToInt32(enteredComand) == 1)
             {
-                case 0:
-                    Console.WriteLine("Всего доброго!");
-                    return;
-                case 1:
-                    //добавление задач в список 
-                    AddTasksToTheTaskList(tasks);
-                    break;
-                case 2:
-                    //изменить статус задачи
-                    ChangeTaskStatus(tasks);
-                    break;
+                AddTasksToTheTaskList(tasks);
+            }
+            else if(IsNum(enteredComand) && Convert.ToInt32(enteredComand) == 2)
+            {
+                ChangeTaskStatus(tasks);
+            }
+            else if (enteredComand == "exit")
+            {
+                Console.WriteLine("Всего доброго!");
+                return;
+            }
+            else
+            {
+                ComandsForStartMenu();
+                enteredComand = Console.ReadLine();
+                ActionSelectionForStartMenu(enteredComand, tasks);
             }
         }
         //Сериализация
@@ -154,11 +162,11 @@ namespace HW5._5
                 bool isDoneValue = tasks[i].isDone;
                 if (isDoneValue)
                 {
-                    Console.WriteLine($"{tasks[i].Title} \t V");
+                    Console.WriteLine($"{tasks[i].Title} \t X");
                 }
                 else
                 {
-                    Console.WriteLine($"{tasks[i].Title} \t X");
+                    Console.WriteLine($"{tasks[i].Title} \t V");
                 }
 
             }
