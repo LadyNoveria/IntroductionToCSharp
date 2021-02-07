@@ -1,0 +1,13 @@
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\bin\Debug\netcoreapp3.1\HW5.3.exe
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\bin\Debug\netcoreapp3.1\HW5.3.deps.json
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\bin\Debug\netcoreapp3.1\HW5.3.runtimeconfig.json
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\bin\Debug\netcoreapp3.1\HW5.3.runtimeconfig.dev.json
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\bin\Debug\netcoreapp3.1\HW5.3.dll
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\bin\Debug\netcoreapp3.1\HW5.3.pdb
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\obj\Debug\netcoreapp3.1\HW5.3.csprojAssemblyReference.cache
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\obj\Debug\netcoreapp3.1\HW5.3.AssemblyInfoInputs.cache
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\obj\Debug\netcoreapp3.1\HW5.3.AssemblyInfo.cs
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\obj\Debug\netcoreapp3.1\HW5.3.csproj.CoreCompileInputs.cache
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\obj\Debug\netcoreapp3.1\HW5.3.dll
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\obj\Debug\netcoreapp3.1\HW5.3.pdb
+C:\Users\littl\Desktop\IntroductionToCSharp\HW5\HW5.3\obj\Debug\netcoreapp3.1\HW5.3.genruntimeconfig.cache

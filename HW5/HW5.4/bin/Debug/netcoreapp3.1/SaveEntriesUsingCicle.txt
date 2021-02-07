@@ -1,0 +1,10 @@
+Вставьте_любой_путь\TestMainDir\TestMainDir
+Вставьте_любой_путь\TestMainDir\TestMainDir\Articles
+Вставьте_любой_путь\TestMainDir\TestMainDir\Documents
+Вставьте_любой_путь\TestMainDir\TestMainDir\Notes
+Вставьте_любой_путь\TestMainDir\TestMainDir\Articles\Article1.txt
+Вставьте_любой_путь\TestMainDir\TestMainDir\Articles\Useful
+Вставьте_любой_путь\TestMainDir\TestMainDir\Notes\Note1.txt
+Вставьте_любой_путь\TestMainDir\TestMainDir\Notes\Note2.txt
+Вставьте_любой_путь\TestMainDir\TestMainDir\Articles\Useful\UsefulArticle2.txt
+Вставьте_любой_путь\TestMainDir\TestMainDir\Articles\Useful\UsefulArticle3.txt
