@@ -358,3 +358,34 @@ MigrationBackup /
 .ionide /
 
 # Конец https://www.toptal.com/developers/gitignore/api/visualstudio
+HW8ForFramework/.vs/HW8ForFramework/v16/.suo
+
+HW8ForFramework/HW8ForFramework.sln
+
+HW8ForFramework/HW8ForFramework/bin/Debug/HW8ForFramework.exe
+
+HW8ForFramework/HW8ForFramework/bin/Debug/HW8ForFramework.exe.config
+
+HW8ForFramework/HW8ForFramework/bin/Debug/HW8ForFramework.pdb
+
+HW8ForFramework/HW8ForFramework/HW8ForFramework.csproj
+
+HW8ForFramework/HW8ForFramework/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+
+HW8ForFramework/HW8ForFramework/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+
+HW8ForFramework/HW8ForFramework/obj/Debug/HW8ForFramework.csproj.CoreCompileInputs.cache
+
+HW8ForFramework/HW8ForFramework/obj/Debug/HW8ForFramework.csproj.FileListAbsolute.txt
+
+HW8ForFramework/HW8ForFramework/obj/Debug/HW8ForFramework.csprojAssemblyReference.cache
+
+HW8ForFramework/HW8ForFramework/obj/Debug/HW8ForFramework.exe
+
+HW8ForFramework/HW8ForFramework/obj/Debug/HW8ForFramework.pdb
+
+HW8ForFramework/HW8ForFramework/Properties/Settings.Designer.cs
+
+HW8ForFramework/HW8ForFramework/Properties/Settings.settings
+
+HW8ForFramework/HW8ForFramework/Properties/AssemblyInfo.cs
